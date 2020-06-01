@@ -1,11 +1,25 @@
-<div class="items-list">
+<div class="items-list col-3 mt-5">
   <% @items.each do |item| %>
-    <div class="item">
-      <h3><%= item.title %></h3>
-      <p><%= item.description %></p>
-      <p><%= item.price %></p>
-      <img src="<%= item.image_url %>">
-      <%= link_to "Voir ce chaton", item_path(item) %>
+    <div class="card mb-3 border-secondary">
+      <h3 class="card-header bg-secondary"><%= item.title %></h3>
+      <div class="card-body">
+        <h5 class="card-title">By User</h5>
+        <h6 class="card-subtitle text-muted">Le 00/00/00</h6>
+      </div>
+      <img style="height: 200px; width: 100%; display: block;" src="<%= item.image_url %>" alt="Cat image">
+      <div class="card-body">
+        <p class="card-text"><%= item.description %></p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><%= item.price %>€</li>
+      </ul>
+      <div class="card-body">
+        <%= link_to "Voir le chaton", item_path(item)%>
+        <a href="#">Ajouter au panier</a>
+      </div>
+      <div class="card-footer text-muted">
+        Le <%= item.created_at %>
+      </div>
     </div>
-  <% end %>
+    <% end %>
 </div>
