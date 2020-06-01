@@ -1,0 +1,11 @@
+<div class="items-list">
+  <% @items.each do |item| %>
+    <div class="item">
+      <h3><%= item.title %></h3>
+      <p><%= item.description %></p>
+      <p><%= item.price %></p>
+      <img src="<%= item.image_url %>">
+      <%= link_to "Voir ce chaton", item_path(item) %>
+    </div>
+  <% end %>
+</div>
