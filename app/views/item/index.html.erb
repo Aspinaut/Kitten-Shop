@@ -15,11 +15,13 @@
       </ul>
       <div class="card-body">
         <%= link_to "Voir le chaton", item_path(item)%>
-        <a href="#">Ajouter au panier</a>
+        <% if signed_in? %>
+          <%= link_to "Ajouter au panier", edit_cart_path(current_user.cart), method: 'get'%>
+        <% end %>
       </div>
       <div class="card-footer text-muted">
         Le <%= item.created_at %>
       </div>
     </div>
-    <% end %>
+  <% end %>
 </div>

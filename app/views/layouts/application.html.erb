@@ -50,6 +50,7 @@
         <button id="btnGroupDrop4" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mon compte</button>
         <div class="dropdown-menu" aria-labelledby="btnGroupDrop4" style="">
           <% if signed_in? %>
+            <p>Panier : <%= current_user.cart.items.count %></p>
             <%= link_to "sign out", destroy_user_session_path, method: :delete%>
           <% else %>
             <%= link_to "sign in", new_user_session_path%><br>
