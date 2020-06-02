@@ -50,13 +50,13 @@
         <button id="btnGroupDrop4" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mon compte</button>
         <div class="dropdown-menu" aria-labelledby="btnGroupDrop4" style="">
           <% if signed_in? %>
-          <%= link_to "sign out", destroy_user_session_path, method: :delete%>
+            <%= link_to "sign out", destroy_user_session_path, method: :delete%>
           <% else %>
-          <%= link_to "sign in", new_user_session_path%><br>
-          <%= link_to "sign up", new_user_registration_path%>
+            <%= link_to "sign in", new_user_session_path%><br>
+            <%= link_to "sign up", new_user_registration_path%>
           <% end %>
         </div>
-        
+
       </div>
     </div>
   </div>
@@ -64,11 +64,5 @@
 
 <body>
 <%= yield %>
-<% if signed_in? %>
-<%= link_to "sign out", destroy_user_session_path, method: :delete%>
-<% else %>
-<%= link_to "sign in", new_user_session_path%><br>
-<%= link_to "sign up", new_user_registration_path%>
-<% end %>
 </body>
 </html>
