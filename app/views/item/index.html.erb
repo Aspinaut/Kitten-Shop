@@ -16,7 +16,8 @@
       <div class="card-body">
         <%= link_to "Voir le chaton", item_path(item)%>
         <% if signed_in? %>
-          <%= link_to "Ajouter au panier", edit_cart_path(current_user.cart), method: 'get'%>
+          <%= link_to "Ajouter au panier",
+         edit_cart_path(current_user.cart, item.id), method: 'get'%>
         <% end %>
       </div>
       <div class="card-footer text-muted">
