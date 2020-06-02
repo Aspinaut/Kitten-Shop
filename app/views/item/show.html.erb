@@ -3,9 +3,7 @@
       <div class="row d-flex">
 
         <div class="col-md-8">
-           <% if @item.image_url.attached?%>
             <%= image_tag src:"@item.image_url", alt: 'photo chat', class:"img-fluid", size: "1000" %>
-          <% end %>
         </div>
 
         <div class="col-md-4">
