@@ -1,5 +1,23 @@
+    <div class="container">
 
-  <h3><%= @item.title %></h3>
-  <p><%= @item.description %></p>
-  <p><%= @item.price %></p>
-  <img src="<%= @item.image_url %>">
+      <div class="row d-flex">
+
+        <div class="col-md-8">
+           <% if @item.image_url.attached?%>
+            <%= image_tag src:"@item.image_url", alt: 'photo chat', class:"img-fluid", size: "1000" %>
+          <% end %>
+        </div>
+
+        <div class="col-md-4">
+          <h3 class="my-3"><strong><em><%= @item.title %> <i class="fab fa-angellist"></i></em></strong></h3>
+        <div class="card-body">
+        <p class="card-text"><%= @item.description %></p>
+      </div>
+          <ul>
+            <h5><%= @item.price %> + "€"</h5>
+            <button class= "submit" href="#"> add to cart </button>
+          </ul>
+        </div>
+
+    </div>
+    <%= link_to 'Back', items_path %>
