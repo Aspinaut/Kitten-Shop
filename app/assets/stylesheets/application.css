@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+.field {
+  margin-top: 30px;
+}
+
+.ensemble {
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actions {
+  padding-top: 30px;
+}
