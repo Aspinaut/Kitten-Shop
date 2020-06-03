@@ -1,28 +1,31 @@
-<div class="items-list col-3 mt-5">
-  <% @items.each do |item| %>
-    <div class="card mb-3 border-secondary">
-      <h3 class="card-header bg-secondary"><%= item.title %></h3>
-      <div class="card-body">
-        <h5 class="card-title">By User</h5>
-        <h6 class="card-subtitle text-muted">Le 00/00/00</h6>
-      </div>
-      <img style="height: <%= item.image_url[28..30] %>px; width: <%= item.image_url[24..26] %>px; display: block;" src="<%= item.image_url %>" alt="Cat image">
-      <div class="card-body">
-        <p class="card-text"><%= item.description %></p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><%= item.price %>€</li>
-      </ul>
-      <div class="card-body">
+<%= render 'jombotron'%>
+<%= render 'presentation' %>
+<div class="container col-12 mt-5">
+  <div class="items-list d-flex flex-wrap mt-5">
+    <% @items.each do |item| %>
+      <div class="card mb-4 box-shadow m-3 border-secondary ">
+        <h3 class="card-header bg-secondary"><%= item.title %></h3>
+        <div class="card-body">
+          <h5 class="card-title">By User</h5>
+          <h6 class="card-subtitle text-muted">Le 00/00/00</h6>
+        </div>
+        <img class="card-img" style="height: <%= item.image_url[28..30] %>px; width: <%= item.image_url[24..26] %>px; display: block;" src="<%= item.image_url %>" alt="Cat image">
+        <div class="card-body">
+          <p class="card-text"><%= item.description %></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><%= item.price %>€</li>
+        </ul>
+         <div class="card-body">
         <%= link_to "Voir le chaton", item_path(item)%>
         <% if signed_in? %>
           <%= link_to "Ajouter au panier",
          edit_cart_path(current_user.cart, item.id), method: 'get'%>
         <% end %>
       </div>
-      <div class="card-footer text-muted">
-        Le <%= item.created_at %>
+        <div class="card-footer text-muted">
+          Le <%= item.created_at %>
+        </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  
