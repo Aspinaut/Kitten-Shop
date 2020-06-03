@@ -28,3 +28,12 @@
 .actions {
   padding-top: 30px;
 }
+
+.edit {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.delete_account {
+  padding-top: 80px;
+}

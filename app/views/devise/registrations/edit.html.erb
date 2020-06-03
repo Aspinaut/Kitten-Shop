@@ -1,4 +1,10 @@
-<h2>Modifier mes infos personnelles</h2>
+<div class="edit">
+
+<h4>Mes commandes passées</h4>
+
+
+
+<h4>Modifier mes infos personnelles</h4>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -36,8 +42,13 @@
   </div>
 <% end %>
 
-<h3>Supprimer mon compte</h3>
+<div class="delete_account">
+
+<h4>Supprimer mon compte</h4>
 
 <p>Peu satisfait? Vous pouvez supprimer votre compte de notre site en ligne <%= button_to "Supprimer", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
+</div>
+</div>
