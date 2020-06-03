@@ -13,7 +13,9 @@
       </div>
       <ul>
         <h5><%= @item.price %>€</h5> <br>
+        <% if signed_in? %>
         <button type="button" class="btn btn-success">Ajouter au panier</button>
+        <% end %>
       </ul>
     </div>
   </div>
