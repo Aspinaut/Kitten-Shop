@@ -1,21 +1,21 @@
-    <div class="container">
+<div class="container">
 
-      <div class="row d-flex">
+  <div class="row d-flex">
 
-        <div class="col-md-8">
-            <img src="<%= @item.image_url %>", alt= "photo chat", class="img-fluid", size= "1000">
-        </div>
+    <div class="col-md-8">
+        <img src="<%= @item.image_url %>", alt= "photo chat", class="img-fluid", size= "1000">
+    </div>
 
-        <div class="col-md-4">
-          <h3 class="my-3"><strong><em><%= @item.title %> <i class="fab fa-angellist"></i></em></strong></h3>
-        <div class="card-body">
+    <div class="col-md-4">
+      <h3 class="my-3"><strong><em><%= @item.title %> <i class="fab fa-angellist"></i></em></strong></h3>
+      <div class="card-body">
         <p class="card-text"><%= @item.description %></p>
       </div>
-          <ul>
-            <h5><%= @item.price %>€</h5> <br>
-            <button type="button" class="btn btn-success">Ajouter au panier</button>
-          </ul>
-        </div>
-
+      <ul>
+        <h5><%= @item.price %>€</h5> <br>
+        <button type="button" class="btn btn-success">Ajouter au panier</button>
+      </ul>
     </div>
-    <%= link_to 'Retour', :back %>
+  </div>
+</div>
+<%= link_to 'Retour', :back %>
