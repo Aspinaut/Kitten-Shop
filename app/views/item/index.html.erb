@@ -1,25 +1,45 @@
-<div class="items-list col-3 mt-5">
-  <% @items.each do |item| %>
-    <div class="card mb-3 border-secondary">
-      <h3 class="card-header bg-secondary"><%= item.title %></h3>
-      <div class="card-body">
-        <h5 class="card-title">By User</h5>
-        <h6 class="card-subtitle text-muted">Le 00/00/00</h6>
+<%= render 'jombotron'%>
+<%= render 'presentation' %>
+<div class="container col-12 mt-5">
+  <div class="items-list d-flex flex-wrap mt-5">
+    <% @items.each do |item| %>
+      <div class="card mb-4 box-shadow m-3 border-secondary ">
+        <h3 class="card-header bg-secondary"><%= item.title %></h3>
+        <div class="card-body">
+          <h5 class="card-title">By User</h5>
+          <h6 class="card-subtitle text-muted">Le 00/00/00</h6>
+        </div>
+        <img class="card-img" style="height: <%= item.image_url[28..30] %>px; width: <%= item.image_url[24..26] %>px; display: block;" src="<%= item.image_url %>" alt="Cat image">
+        <div class="card-body">
+          <p class="card-text"><%= item.description %></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><%= item.price %>€</li>
+        </ul>
+        <div class="card-body">
+          <%= link_to "Voir le chaton", item_path(item)%>
+          <a href="#">Ajouter au panier</a>
+        </div>
+        <div class="card-footer text-muted">
+          Le <%= item.created_at %>
+        </div>
       </div>
-      <img style="height: <%= item.image_url[28..30] %>px; width: <%= item.image_url[24..26] %>px; display: block;" src="<%= item.image_url %>" alt="Cat image">
-      <div class="card-body">
-        <p class="card-text"><%= item.description %></p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><%= item.price %>€</li>
-      </ul>
-      <div class="card-body">
-        <%= link_to "Voir le chaton", item_path(item)%>
-        <a href="#">Ajouter au panier</a>
-      </div>
-      <div class="card-footer text-muted">
-        Le <%= item.created_at %>
-      </div>
-    </div>
-    <% end %>
+      <% end %>
+  </div>
 </div>
+          <!-- <div class="row">
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div> -->
