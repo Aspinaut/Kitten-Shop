@@ -5,8 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one :cart
   has_many :orders
-  after_create :create_cart, :set_admin_to_false
+  after_create :create_cart, :set_admin_to_false, :welcome_send
 
+  def welcome_send
+    UserMailer.welcome_email(self).deliver_now
+  end
+  
   private
 
   def set_admin_to_false

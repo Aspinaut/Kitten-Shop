@@ -49,14 +49,17 @@
         <button id="btnGroupDrop4" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mon compte</button>
         <div class="dropdown-menu" aria-labelledby="btnGroupDrop4" style="">
           <% if signed_in? %>
-            <%= link_to "Ajouter un item", new_item_path %>
-            <!-- ci-dessus Espace dédié uniquement à l'admin, pour ajouter des items -->
             <%= link_to "Mon profil", edit_user_registration_path %>
             <br>
             <%= link_to "Me déconnecter", destroy_user_session_path, method: :delete%>
           <% else %>
             <%= link_to "Me connecter", new_user_session_path%><br>
             <%= link_to "M'inscrire", new_user_registration_path%>
+          <% end %>
+          <% if current_user %>
+            <% if current_user.is_admin %>
+              <%= link_to "Ajouter un item", new_item_path %>
+            <% end %>
           <% end %>
         </div>
 
