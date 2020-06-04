@@ -5,6 +5,7 @@ class Order < ApplicationRecord
   after_create :thanks_send
   after_create :new_order_send
 
+
   def thanks_send
     OrderMailer.thanks_email(self).deliver_now
   end
@@ -12,6 +13,5 @@ class Order < ApplicationRecord
   def new_order_send
     OrderMailer.new_order_email(self).deliver_now
   end
-
 
 end
