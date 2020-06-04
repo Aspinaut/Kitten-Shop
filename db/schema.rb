@@ -70,6 +70,16 @@ ActiveRecord::Schema.define(version: 2020_06_04_092512) do
     t.index ["order_id"], name: "index_join_table_items_orders_on_order_id"
   end
 
+  create_table "line_items", force: :cascade do |t|
+    t.bigint "cart_id"
+    t.bigint "item_id"
+    t.integer "quantity", default: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_line_items_on_cart_id"
+    t.index ["item_id"], name: "index_line_items_on_item_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -91,4 +101,6 @@ ActiveRecord::Schema.define(version: 2020_06_04_092512) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "line_items", "carts"
+  add_foreign_key "line_items", "items"
 end
