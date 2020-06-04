@@ -20,15 +20,15 @@
           	<img src="<%= item.image_url %>", alt= "photo chat", class="img-fluid">
         <% end %>
     
-    </div>
-
-    	
-    	
+    </div>    	
 </ul>
 	<% end %>
 	</div>
   </div>
   <br>
+  <div>
   <span>Le montant total de votre panier est de : <%= @total_price %> €</span>
+  <button type="button" class= "btn btn-success" href="#"> Passer commande </button>
+</div>
 </div>
 <%= link_to 'Retour', root_path %>
