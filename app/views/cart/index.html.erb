@@ -16,11 +16,12 @@
         <p class="card-text"><%= item.description %></p>
       </div>
       <ul>
-        <h5><%= item.price %>€</h5> <br>
+        <h5><%= item.price %>€</h5>
+        <br>
         <%= link_to "Retirer du panier", cart_path(current_user.cart, item.id), method: 'delete', class: "btn btn-danger" %>
       </ul>
     </div>
   <% end %>
-  <h3>Le montant total de votre panier est de : <%= @total_price %> €.</h3>
-  <%= link_to 'Retour', root_path %>
+  <br>
+  <h6>Le montant total de votre panier est de : <%= @total_price %> €</h6>
 </div>

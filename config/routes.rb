@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :item
   resources :cart, only: [:show, :edit, :destroy]
   resources :item, only: [:show] do
-    resources :pictures, only: [:create]
+    resources :pictures, only: [:create, :new]
   end
 end

@@ -3,7 +3,12 @@
   <div class="row d-flex">
 
     <div class="col-md-8">
-        <img src="<%= @item.image_url %>", alt= "photo chat", class="img-fluid", size= "1000">
+        <% if @item.picture.attached? %>
+          <%= image_tag @item.picture %>
+        <% else %>
+          <img src="<%= @item.image_url %>", alt= "photo chat", class="img-fluid", size= "1000">
+        <% end %>
+
     </div>
 
     <div class="col-md-4">
@@ -14,7 +19,9 @@
       <ul>
         <h5><%= @item.price %>€</h5> <br>
         <% if signed_in? %>
-        <button type="button" class="btn btn-success">Ajouter au panier</button>
+          <%= link_to "Mettre à jour la photo", new_item_picture_path(@item.id), method: 'get'%>
+          <%= link_to "Ajouter au panier", edit_cart_path(current_user.cart, @item.id), method: 'get'%>
+
         <% end %>
       </ul>
     </div>

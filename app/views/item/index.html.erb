@@ -9,7 +9,11 @@
           <h5 class="card-title">By User</h5>
           <h6 class="card-subtitle text-muted">Le 00/00/00</h6>
         </div>
-        <img class="card-img" style="height: <%= item.image_url[28..30] %>px; width: <%= item.image_url[24..26] %>px; display: block;" src="<%= item.image_url %>" alt="Cat image">
+        <% if item.picture.attached? %>
+          <%= image_tag item.picture %>
+        <% else %>
+          <img class="card-img" style="display: block;" src="<%= item.image_url %>" alt="Cat image">
+        <% end %>
         <div class="card-body">
           <p class="card-text"><%= item.description %></p>
         </div>
@@ -28,4 +32,3 @@
         </div>
       </div>
     <% end %>
-  
