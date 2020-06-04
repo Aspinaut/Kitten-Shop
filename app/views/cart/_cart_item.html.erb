@@ -27,8 +27,12 @@
   </div>
   <br>
   <div>
+    <% if @items.length != 0 %>
   <h6> Le montant total de votre panier est de : <strong><%= @total_price %> €</strong></h6>
   <button type="button" class= "btn btn-success" href="#"> Passer commande </button>
+    <% else %>
+    <p> Votre panier est vide</p>
+  <% end %>
+  <%= link_to 'Retour à la liste des photos', root_path %>
 </div>
 </div>
-<%= link_to 'Retour', root_path %>
