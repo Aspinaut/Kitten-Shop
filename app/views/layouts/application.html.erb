@@ -50,6 +50,7 @@
         <div class="dropdown-menu" aria-labelledby="btnGroupDrop4" style="">
           <% if signed_in? %>
             <%= link_to "Ajouter un item", new_item_path %>
+            <br>
             <!-- ci-dessus Espace dédié uniquement à l'admin, pour ajouter des items -->
             <%= link_to "Mon profil", edit_user_registration_path %>
             <br>
