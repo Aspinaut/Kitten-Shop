@@ -1,23 +1,80 @@
-<div class="container">
-  <% @items.each do |item| %>
-  <div class="row d-flex">
-    <div class="col-md-8">
-        <img src="<%= item.image_url %>", alt= "photo chat", class="img-fluid", size= "1000">
-    </div>
-
-    <div class="col-md-4">
-      <h3 class="my-3"><strong><em><%= item.title %> <i class="fab fa-angellist"></i></em></strong></h3>
-    </div>
-    <div class="card-body">
-      <p class="card-text"><%= item.description %></p>
-    </div>
-    <ul>
-      <h5><%= item.price %>€</h5> <br>
-      <%= link_to "Retirer du panier", cart_path(current_user.cart, item.id), method: 'delete', class: "btn btn-danger" %>
-    </ul>
-  </div>
+<div class="container mt-4">
+  <h2 class="action-banner">Mon panier</h2>
+  <hr>
+  <% if @items.length != 0 %>
   <% end %>
-  <h3>Le montant total de votre panier est de : <%= @total_price %> €.</h3>
-  <%= link_to 'Retour', root_path %>
-  <%= link_to 'Passer commande', new_order_path %>
+  <% @items.each do |item| %>
+  
+    <div class="card">
+      <div class="card-body">
+        <div class="float-left mr-4">
+          <p><%= image_tag item.image_url, size: "200x200" %></p>
+        </div>
+        <p><b>Nom de la photo :</b> <%= item.title %> </p>
+        <p><b>Description :</b> <%= item.description %> </p>
+        <p><b>Prix  :</b> <%= item.price %>€</p>
+        
+        <%= form_with(model: @cart, local: true, url: cart_path(current_user.cart, item.id), method: "delete")  do |form| %>
+
+
+          <%= form.submit "Supprimer du panier", class:"btn btn-warning float-right"%>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <hr>
+  <% if @items.length != 0 %>
+    <h2>Le montant total de votre panier est de : <%= @total_price %>€</h2>
+  <% else %>
+    <p> Dommage !!! Votre panier est vide</p>
+  <% end %>
+
+
+
+<div class="paiement">
+
+    <div class="container">
+      <h1 class="d-flex justify-content-center">
+     
+      
+
+  <!-- ..................STRIPE ........................-->
+
+<%= form_tag url_for(action: 'create', method: 'get') do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="A month's subscription"
+          data-amount="<%= (@total_price * 100).to_f %>"
+          data-currency="eur"
+          data-locale="auto"></script>
+<% end %>
+<!-- ..................STRIPE ........................-->
+<p></p>
+<%= link_to 'Retour Accueil', root_path, class:"btn btn-primary btn-lg jus" %>
+
+ 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
