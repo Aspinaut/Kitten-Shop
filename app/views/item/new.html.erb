@@ -1,0 +1,10 @@
+<h5>Créer un item</h5>
+<%= form_tag '/item' do %>
+  <%= label_tag "Titre" %>
+  <%= text_field_tag :item_title %>
+  <%= label_tag "Description" %>
+  <%= text_field_tag :item_description %>
+  <%= label_tag "Prix" %>
+  <%= text_field_tag :item_price %>
+  <%= submit_tag "Créer" %>
+<% end %>
