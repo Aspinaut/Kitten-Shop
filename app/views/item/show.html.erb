@@ -3,12 +3,7 @@
   <div class="row d-flex">
 
     <div class="col-md-8">
-        <% if @item.picture.attached? %>
-          <%= image_tag @item.picture %>
-        <% else %>
-          <img src="<%= @item.image_url %>", alt= "photo chat", class="img-fluid", size= "1000">
-        <% end %>
-
+        <img src="<%= @item.image_url %>", alt= "photo chat", class="img-fluid", size= "1000">
     </div>
 
     <div class="col-md-4">
@@ -17,19 +12,10 @@
         <p class="card-text"><%= @item.description %></p>
       </div>
       <ul>
-        <h5><%= @item.price %>€</h5>
-        <br>
-        <% if signed_in? %>
-          <%= link_to "Ajouter au panier", edit_cart_path(current_user.cart, @item.id), method: 'get', class: "btn btn-success"%>
-        <% end %>
-        <% if current_user %>
-          <% if current_user.is_admin %>
-            <%= link_to "Editer le chaton", edit_item_path(@item.id), method: 'get', class: "btn btn-primary"%>
-            <%= link_to "Supprimer le chaton", item_path(@item.id), method: 'delete', class: "btn btn-danger"%>
-          <% end %>
-        <% end %>
+        <h5><%= @item.price %>€</h5> <br>
+        <button type="button" class="btn btn-success">Ajouter au panier</button>
       </ul>
     </div>
   </div>
 </div>
-<%= link_to 'Retour', root_path %>
+<%= link_to 'Retour', :back %>
