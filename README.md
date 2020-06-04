@@ -1,34 +1,13 @@
-# README
+# Boutique de photos de chatons en ligne
 
-<<<<<<< HEAD
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1) Clonez le repo
+2) $ bundle install
+3) $ rails db:create db:migrate db:seed
+4) $ rails s
+5) Créez un compte, puis pour le passer en mode admin :
+6) $ rails c
+7) > User.last.update(is_admin:true)
 
-Things you may want to cover:
+Vous avez maintenant accès à l'intégralité des fonctionnalités de notre site !
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Amani is here
-
-Janvier
-
-Marie!!
-
-Vincent here !
+Bonne correction :)
