@@ -8,6 +8,8 @@
 6) $ rails c
 7) > User.last.update(is_admin:true)
 
+Le lien Heroku: https://kittenproject.herokuapp.com/
+
 Vous avez maintenant accès à l'intégralité des fonctionnalités de notre site !
 
 Bonne correction :)
