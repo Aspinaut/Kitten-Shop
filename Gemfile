@@ -67,12 +67,8 @@ gem 'devise'
 
 gem 'faker'
 
-
-gem 'stripe'
-
 gem 'mailjet'
 
 gem 'letter_opener'
 
 gem 'dotenv-rails'
-

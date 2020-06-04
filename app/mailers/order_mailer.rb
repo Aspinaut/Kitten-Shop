@@ -13,5 +13,4 @@ class OrderMailer < ApplicationMailer
 
     mail(to: 'pelletierjanvier@gmail.com', subject: 'Nouvelle commande')
   end
-  
 end
