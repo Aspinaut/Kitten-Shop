@@ -11,7 +11,7 @@ class OrderMailer < ApplicationMailer
   def new_order_email(order)
     @order = order
 
-    mail(to: 'pelletierjanvier@gmail.com', subject: 'Nouvelle commande')
+    mail(to: 'kittenproject@yopmail.com', subject: 'Nouvelle commande')
   end
 
 end
