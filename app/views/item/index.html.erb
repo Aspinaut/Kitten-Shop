@@ -9,11 +9,7 @@
           <h5 class="card-title">By User</h5>
           <h6 class="card-subtitle text-muted">Le 00/00/00</h6>
         </div>
-        <% if item.picture.attached? %>
-          <%= image_tag item.picture %>
-        <% else %>
-          <img class="card-img" style="display: block;" src="<%= item.image_url %>" alt="Cat image">
-        <% end %>
+        <img class="card-img" style="height: <%= item.image_url[28..30] %>px; width: <%= item.image_url[24..26] %>px; display: block;" src="<%= item.image_url %>" alt="Cat image">
         <div class="card-body">
           <p class="card-text"><%= item.description %></p>
         </div>
@@ -21,18 +17,10 @@
           <li class="list-group-item"><%= item.price %>€</li>
         </ul>
          <div class="card-body">
-<<<<<<< HEAD
-        <%= link_to "Voir le chaton", item_path(item), class: "btn btn-info" %>
-        <% if signed_in? %>
-          <%= link_to "Editer le chaton", edit_item_path(item.id), method: 'get', class: "btn btn-primary"%>
-          <%= link_to "Supprimer le chaton", item_path(item.id), method: 'delete', class: "btn btn-danger"%>
-          <%= link_to "Ajouter au panier", edit_cart_path(current_user.cart, item.id), method: 'get', class: "btn btn-success"%>
-=======
         <%= link_to "Voir le chaton", item_path(item)%>
-        <% if signed_in? %> 
-          <%= button_to "Ajouter au panier",
-         line_items_path(item_id: item), class: "btn btn-primary" %>
->>>>>>> development
+        <% if signed_in? %>
+          <%= link_to "Ajouter au panier",
+         edit_cart_path(current_user.cart, item.id), method: 'get'%>
         <% end %>
       </div>
         <div class="card-footer text-muted">
@@ -40,3 +28,4 @@
         </div>
       </div>
     <% end %>
+  
