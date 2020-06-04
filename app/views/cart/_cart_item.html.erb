@@ -1,0 +1,34 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-8">
+      <h5 class="text-muted">Panier</h5>
+      <% @items.each do |item| %>
+<ul class="list-group">
+  <div  class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+    <div class="flex-row">
+      <h3><%= item.title %></h3> 
+      <p><small><%= item.description %></small></p>
+      <h6><%= item.price %> €</h6>
+      <span class="badge badge-info badge-pill"> <%= rand (3..50) %> en Stock</span>
+      <%= link_to "Retirer du panier", cart_path(current_user.cart, item.id), method: 'delete', type:"button", class: 'btn btn-danger'  %>
+      </div>
+    <div class="d-flex justify-content-start panel">
+    	<% if item.picture.attached? %>
+          	<%= image_tag item.picture %>
+        <% else %>
+          	<img src="<%= item.image_url %>", alt= "photo chat", class="img-fluid">
+        <% end %>
+    
+    </div>
+
+    	
+    	
+</ul>
+	<% end %>
+	</div>
+  </div>
+  <br>
+  <span>Le montant total de votre panier est de : <%= @total_price %> €</span>
+</div>
+<%= link_to 'Retour', root_path %>
