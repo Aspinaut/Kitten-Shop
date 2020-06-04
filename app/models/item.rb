@@ -7,10 +7,8 @@ class Item < ApplicationRecord
 
   has_many :join_table_items_orders
   has_many :orders, through: :join_table_items_orders
-<<<<<<< HEAD
 
   has_one_attached :picture
-=======
-  has_many :line_items, dependent: :nullify #on supprime pas le line_item mais remettre la référence (qui apparaît dans le line_item) à 0 si le produit n'existe plus
->>>>>>> development
+
+
 end
