@@ -25,23 +25,24 @@
 </head>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" <%= link_to "Accueil", item_index_path %></a>
+  <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
-      <% if signed_in? %>
       <li class="nav-item active">
-        <a class="nav-link" <%= link_to "Mon panier (#{current_user.cart.items.count})", cart_path(current_user.cart) %><span class="sr-only">(current)</span></a>
-      </li>
-      <% end %>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Contact</a>
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">L'équipe</a>
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
       </li>
     </ul>
     <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
@@ -49,14 +50,20 @@
         <button id="btnGroupDrop4" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mon compte</button>
         <div class="dropdown-menu" aria-labelledby="btnGroupDrop4" style="">
           <% if signed_in? %>
-            <%= link_to "Ajouter un item", new_item_path %>
-            <!-- ci-dessus Espace dédié uniquement à l'admin, pour ajouter des items -->
+
             <%= link_to "Mon profil", edit_user_registration_path %>
+            <%= link_to "Panier : #{current_user.cart.items.count}", cart_path(current_user.cart) %>
+
             <br>
-            <%= link_to "Me déconnecter", destroy_user_session_path, method: :delete%>
+            <%= link_to "sign out", destroy_user_session_path, method: :delete%>
           <% else %>
             <%= link_to "Me connecter", new_user_session_path%><br>
             <%= link_to "M'inscrire", new_user_registration_path%>
+          <% end %>
+          <% if current_user %>
+            <% if current_user.is_admin %>
+              <%= link_to "Ajouter un item", new_item_path %>
+            <% end %>
           <% end %>
         </div>
 
